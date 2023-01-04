@@ -19,6 +19,6 @@
     "vite": "^4.0.0",
     "sass": "^1.57.1",
     "unplugin-auto-import": "^0.12.1",
-    "unplugin-vue-components": "^0.22.12",
+    "unplugin-vue-components": "^0.22.12"
   }
 }
