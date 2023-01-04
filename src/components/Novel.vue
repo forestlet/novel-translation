@@ -19,7 +19,6 @@ let en_txt: Ref<string[]> = ref([""])
 
 // 开发环境
 if (import.meta.env.DEV) {
-
     import(cn_path).then(t => {
         cn_txt.value = (t.default).split("\r\n")
     })
@@ -29,11 +28,11 @@ if (import.meta.env.DEV) {
 }
 // 产品模式
 else {
-    fetch(cn_path)
+    fetch(window.location.href.split("/#/")[0] + cn_path)
         .then(res => { return res.text() })
         .then(text => { cn_txt.value = text.split("\r\n") })
 
-    fetch(en_path)
+    fetch(window.location.href.split("/#/")[0] + en_path)
         .then(res => { return res.text() })
         .then(text => { en_txt.value = text.split("\r\n") })
 }
