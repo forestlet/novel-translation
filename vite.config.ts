@@ -22,5 +22,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  build: { outDir: "doc" },
+  base: "./",
+  build: { outDir: "docs" },
 });
