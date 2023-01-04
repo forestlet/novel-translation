@@ -19,7 +19,8 @@ export default defineConfig({
   resolve: {
     // 配置路径别名
     alias: {
-      "@": path.resolve(__dirname, "src")
+      "@": path.resolve(__dirname, "src"),
     },
   },
+  build: { outDir: "../doc" },
 });
