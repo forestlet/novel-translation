@@ -1,8 +1,11 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
+import { router } from "@/router/router";
+
 import "normalize.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import "@/style/style.scss";
 
-createApp(App).mount("#app");
+createApp(App).use(router).mount("#app");
