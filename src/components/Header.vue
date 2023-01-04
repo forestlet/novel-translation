@@ -52,11 +52,11 @@ const home = () => {
                         class="bi bi-translate"></i> </el-button>
             </el-button-group>
 
-            <el-button text>
-                <a href="https://github.com/forestlet/novel-translation">
+            <a href="https://github.com/forestlet/novel-translation">
+                <el-button text>
                     <i class=" bi bi-github"></i>
-                </a>
-            </el-button>
+                </el-button>
+            </a>
         </div>
     </div>
 </template>
