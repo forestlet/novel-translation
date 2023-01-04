@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { novels } from "@/data/novel"
 import { router } from "@/router/router"
-import { ref } from "vue";
+import { Ref, ref } from "vue";
 import { lang } from "@/data/lang"
 import { current_novel, i_novel } from "@/data/novel"
 
@@ -11,17 +11,32 @@ if (current_novel.value == "") {
     current_novel.value = novels[novel_name]
 }
 
-let cn_path = `/public/${novel_name}/${(current_novel.value as unknown as i_novel).cn}.md?raw`
-let cn_txt = ref("")
-import(cn_path).then(t => {
-    cn_txt.value = (t.default).split("\r\n")
-})
+let cn_path = `/${novel_name}/${(current_novel.value as unknown as i_novel).cn}.md?raw`
+let cn_txt: Ref<string[]> = ref([""])
 
-let en_path = `/public/${novel_name}/${(current_novel.value as unknown as i_novel).en}.md?raw`
-let en_txt = ref("")
-import(en_path).then(t => {
-    en_txt.value = (t.default).split("\r\n")
-})
+let en_path = `/${novel_name}/${(current_novel.value as unknown as i_novel).en}.md?raw`
+let en_txt: Ref<string[]> = ref([""])
+
+// 开发环境
+if (import.meta.env.DEV) {
+
+    import(cn_path).then(t => {
+        cn_txt.value = (t.default).split("\r\n")
+    })
+    import(en_path).then(t => {
+        en_txt.value = (t.default).split("\r\n")
+    })
+}
+// 产品模式
+else {
+    fetch(cn_path)
+        .then(res => { return res.text() })
+        .then(text => { cn_txt.value = text.split("\r\n") })
+
+    fetch(en_path)
+        .then(res => { return res.text() })
+        .then(text => { en_txt.value = text.split("\r\n") })
+}
 </script>
 
 <template>
