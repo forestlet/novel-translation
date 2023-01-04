@@ -30,7 +30,10 @@ if (import.meta.env.DEV) {
 else {
     fetch(window.location.href.split("/#/")[0] + cn_path)
         .then(res => { return res.text() })
-        .then(text => { cn_txt.value = text.split("\r\n") })
+        .then(text => {
+            cn_txt.value = text.split("\r\n")
+            console.log(cn_txt.value);
+        })
 
     fetch(window.location.href.split("/#/")[0] + en_path)
         .then(res => { return res.text() })
