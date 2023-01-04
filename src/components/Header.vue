@@ -32,7 +32,7 @@ const home = () => {
         <div class="left">
             <p> <span class="logo" @click="home()"> 📑 Novel Translation </span> </p>
 
-            <p class="title">
+            <p class="title" v-if="current_novel">
                 <span v-if="lang == 'en' || lang == 'bi'">{{ (current_novel as unknown as i_novel).en }}</span>
                 <span v-if="lang == 'bi'">&nbsp&nbsp</span>
                 <span v-if="lang == 'cn' || lang == 'bi'">{{ (current_novel as unknown as i_novel).cn }}</span>
@@ -86,6 +86,9 @@ const home = () => {
         .title {
             font-size: 12px;
             padding-left: 28px;
+            position: relative;
+            bottom: 4px;
+            height: 0;
         }
     }
 
@@ -117,6 +120,12 @@ const home = () => {
 
         .left {
             text-align: center;
+
+            .title {
+                padding-left: 0;
+                bottom: 0;
+                height: 12px;
+            }
         }
     }
 }
