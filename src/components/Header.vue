@@ -72,10 +72,9 @@ const home = () => {
     max-width: 720px;
     margin: auto;
     user-select: none;
-    margin: 8px auto;
+    margin: 12px auto;
 
     .left {
-
 
         .logo {
             font-weight: 900;
@@ -87,7 +86,7 @@ const home = () => {
             font-size: 12px;
             padding-left: 28px;
             position: relative;
-            bottom: 4px;
+            bottom: 6px;
             height: 0;
         }
     }
