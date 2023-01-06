@@ -13,30 +13,32 @@ const to_novel = (novel_name: string) => {
 
 <template>
     <div class="content">
-        <el-card v-for="novel_name in novel_names" shadow="never" @click="to_novel(novel_name)">
+        <div class="content-item" v-for="novel_name in novel_names" @click="to_novel(novel_name)">
             <span v-if="lang == 'en' || lang == 'bi'">{{ novels[novel_name].en }}</span>
             <span v-if="lang == 'bi'">&nbsp&nbsp</span>
             <span v-if="lang == 'cn' || lang == 'bi'">{{ novels[novel_name].cn }}</span>
-        </el-card>
+        </div>
     </div>
 </template>
 
 <style lang="scss">
 .content {
-    cursor: pointer;
     width: 72%;
     max-width: 720px;
     margin: auto;
     height: 100%;
     padding: 12px;
+    min-height: calc(100vh - 88px);
 
-    --el-card-border-radius: 6px;
-
-    .el-card {
-        border: 2px solid var(--el-border-color-light);
+    .content-item {
+        cursor: pointer;
+        padding: 20px;
+        border-radius: 0 6px 6px 0;
+        border-left: 3px solid;
+        margin: 7px;
 
         &:hover {
-            border: 2px solid var(--el-color-info-light-5);
+            background-color: var(--el-fill-color-lighter);
         }
     }
 }

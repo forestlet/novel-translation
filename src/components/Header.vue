@@ -66,7 +66,6 @@ const home = () => {
     display: flex;
     justify-content: space-between;
     border-radius: 6px;
-    background-color: var(--el-bg-color);
     padding: 0 8px;
     width: 72%;
     max-width: 720px;

@@ -51,8 +51,8 @@ else {
             </span>
         </h1>
         <div v-for="index in cn_txt.length">
-            <p v-if="lang == 'cn' || lang == 'bi'"> {{ cn_txt[index] }}</p>
             <p v-if="lang == 'en' || lang == 'bi'"> {{ en_txt[index] }}</p>
+            <p v-if="lang == 'cn' || lang == 'bi'"> {{ cn_txt[index] }}</p>
         </div>
     </div>
 </template>
@@ -60,11 +60,15 @@ else {
 <style lang="scss">
 .novel {
     padding: 8px;
-    background-color: var(--el-bg-color);
     width: 72%;
     max-width: 720px;
     margin: auto;
     text-align: justify;
     line-height: 2;
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
 }
 </style>
