@@ -1,58 +1,112 @@
 <script setup lang="ts">
 import { novels } from "@/data/novel"
 import { router } from "@/router/router"
-import { Ref, ref } from "vue";
+import { reactive } from "vue";
 import { lang } from "@/data/lang"
 import { current_novel, i_novel } from "@/data/novel"
 
+interface IContentList { "en": string[], "cn": string[] }
+interface IText { "en": string[], "cn": string[] }
+
 let novel_name = router.currentRoute.value.params.novel_name
+let toc_list: IContentList = reactive({ "en": [], "cn": [] })
 
 if (current_novel.value == "") {
     current_novel.value = novels[novel_name]
 }
 
-let cn_path = `/${novel_name}/${(current_novel.value as unknown as i_novel).cn}.md?raw`
-let cn_txt: Ref<string[]> = ref([""])
+let path = {
+    "cn": `/${novel_name}/${(current_novel.value as unknown as i_novel).cn}.md?raw`,
+    "en": `/${novel_name}/${(current_novel.value as unknown as i_novel).en}.md?raw`
+}
+let txt: IText = reactive({ "cn": [], "en": [] })
 
-let en_path = `/${novel_name}/${(current_novel.value as unknown as i_novel).en}.md?raw`
-let en_txt: Ref<string[]> = ref([""])
+const novel_parser = (txt: string, lang: "en" | "cn") => {
+    let txt_list: string[]
+
+    if (import.meta.env.DEV) txt_list = txt.split("\r\n\r\n")
+    else txt_list = txt.split("\n\n\n\n")
+
+    for (let i = 0; i < txt_list.length; i++) {
+        // 大标题
+        if (txt_list[i].startsWith("# ")) {
+            txt_list[i] = txt_list[i].replace("# ", "")
+            toc_list[lang].push(txt_list[i])
+            txt_list[i] = `<h1 id="${txt_list[i]}"> ${txt_list[i]} </h1>`
+        }
+        // 副标题
+        else if (txt_list[i].startsWith("## ")) {
+            txt_list[i] = txt_list[i].replace("## ", "")
+            toc_list[lang].push(txt_list[i])
+            txt_list[i] = `<h2 id="${txt_list[i]}"> ${txt_list[i]} </h2>`
+        }
+        // 分割线
+        else if (txt_list[i].startsWith("---")) {
+            txt_list[i] = `<hr/>`
+        }
+        // 注释
+        else if (txt_list[i].startsWith("[")) {
+            txt_list[i] = `<p id="${txt_list[i].slice(0, 3)}" class="comment"> ${txt_list[i]} </p>`
+        }
+        // 段落
+        else {
+            txt_list[i] = `<p> ${txt_list[i]} </p>`
+        }
+    }
+    return txt_list
+}
 
 // 开发环境
 if (import.meta.env.DEV) {
-    import(cn_path).then(t => {
-        cn_txt.value = (t.default).split("\r\n")
+    import(path["cn"]).then(t => {
+        txt["cn"] = novel_parser(t.default, "cn")
     })
-    import(en_path).then(t => {
-        en_txt.value = (t.default).split("\r\n")
+    import(path["en"]).then(t => {
+        txt["en"] = novel_parser(t.default, "en")
     })
 }
 // 产品模式
 else {
-    fetch(window.location.href.split("/#/")[0] + cn_path)
+    fetch(window.location.href.split("/#/")[0] + path["cn"])
         .then(res => { return res.text() })
-        .then(text => {
-            cn_txt.value = text.split("\n\n")
-            console.log(cn_txt.value);
-        })
+        .then(text => { txt["cn"] = novel_parser(text, "cn") })
 
-    fetch(window.location.href.split("/#/")[0] + en_path)
+    fetch(window.location.href.split("/#/")[0] + path["en"])
         .then(res => { return res.text() })
-        .then(text => { en_txt.value = text.split("\n\n") })
+        .then(text => { txt["en"] = novel_parser(text, "en") })
 }
+
 </script>
 
 <template>
     <div class="novel">
-        <h1>
-            <span>
-                <span v-if="lang == 'en' || lang == 'bi'">{{ (current_novel as unknown as i_novel).en }}</span>
-                <span v-if="lang == 'bi'">&nbsp&nbsp</span>
-                <span v-if="lang == 'cn' || lang == 'bi'">{{ (current_novel as unknown as i_novel).cn }}</span>
-            </span>
-        </h1>
-        <div v-for="index in cn_txt.length">
-            <p v-if="lang == 'en' || lang == 'bi'"> {{ en_txt[index] }}</p>
-            <p v-if="lang == 'cn' || lang == 'bi'"> {{ cn_txt[index] }}</p>
+        <div class="toc">
+            <el-popover placement="right" :width="300" trigger="hover">
+                <template #reference>
+                    <i class="bi bi-list"></i>
+                </template>
+
+                <ul>
+                    <template v-for="index in toc_list['cn'].length">
+                        <li v-if="lang == 'en' || lang == 'bi'">
+                            <router-link :to="novel_name + '\#' + toc_list['en'][index - 1]">
+                                {{ toc_list['en'][index - 1] }}
+                            </router-link>
+                        </li>
+                        <li v-if="lang == 'cn' || lang == 'bi'">
+                            <router-link :to="novel_name + '\#' + toc_list['cn'][index - 1]">
+                                {{ toc_list['cn'][index - 1] }}
+                            </router-link>
+                        </li>
+                    </template>
+                </ul>
+            </el-popover>
+        </div>
+
+
+        <div v-for="index in txt['cn'].length">
+            <div v-if="lang == 'en' || lang == 'bi'" v-html="txt['en'][index - 1]"> </div>
+            <div v-if="lang == 'cn' || lang == 'bi'" v-html="txt['cn'][index - 1]"></div>
         </div>
     </div>
 </template>
@@ -66,9 +120,25 @@ else {
     text-align: justify;
     line-height: 2;
 
+    .toc {
+        position: fixed;
+        left: 12px;
+        top: calc(50% - 20px);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     p {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
+
+        &.comment {
+            font-size: 0.8rem;
+            color: var(--el-text-color-secondary);
+        }
     }
 }
 </style>

@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Content: typeof import('./src/components/Content.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
+    ElPopover: typeof import('element-plus/es')['ElPopover']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     Header: typeof import('./src/components/Header.vue')['default']
     Novel: typeof import('./src/components/Novel.vue')['default']
