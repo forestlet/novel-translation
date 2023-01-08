@@ -63,15 +63,16 @@ const home = () => {
 
 <style scoped lang="scss">
 .header {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
-    border-radius: 6px;
-    padding: 0 8px;
     width: 72%;
     max-width: 720px;
+    padding: 12px max(14%, (calc(100% - 720px)) / 2);
     margin: auto;
     user-select: none;
-    margin: 12px auto;
+    background-color: var(--el-bg-color);
 
     .left {
 

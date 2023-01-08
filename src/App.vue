@@ -5,12 +5,22 @@ import Header from '@/components/Header.vue'
 
 <template>
   <Header />
-  <el-scrollbar height="calc(100vh - 64px)" class="main">
+  <div class="main">
     <router-view>
     </router-view>
-  </el-scrollbar>
+  </div>
 </template>
 
 <style>
+.main {
+  overflow: auto;
+  margin-top: 56px;
 
+}
+
+@media only screen and (max-width: 400px) {
+  .main {
+    margin-top: 100px;
+  }
+}
 </style>
