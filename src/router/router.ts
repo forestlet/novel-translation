@@ -1,9 +1,9 @@
 import Novel from "@/components/Novel.vue";
-import NovelList from "@/components/NovelList.vue";
+import Content from "@/components/Content.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
-  { path: "/", component: NovelList },
+  { path: "/", component: Content },
   { path: "/novel/:novel_name", component: Novel },
 ];
 

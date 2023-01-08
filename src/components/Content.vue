@@ -33,9 +33,8 @@ const to_novel = (novel_name: string) => {
     .content-item {
         cursor: pointer;
         padding: 20px;
-        border-radius: 0 6px 6px 0;
-        border-left: 3px solid;
-        margin: 7px;
+        border-radius: 6px;
+        margin: 8px;
 
         &:hover {
             background-color: var(--el-fill-color-lighter);
