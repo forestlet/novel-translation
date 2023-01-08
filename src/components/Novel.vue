@@ -25,7 +25,7 @@ const novel_parser = (txt: string, lang: "en" | "cn") => {
     let txt_list: string[]
 
     if (import.meta.env.DEV) txt_list = txt.split("\r\n\r\n")
-    else txt_list = txt.split("\n\n\n\n")
+    else txt_list = txt.split("\n\n")
 
     for (let i = 0; i < txt_list.length; i++) {
         // 大标题
