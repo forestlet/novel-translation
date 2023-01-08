@@ -1,6 +1,10 @@
 {
     "01 狂人日记": {
-        "en": "Paranoia's Journals",
+        "en": "A Paranoia's Journals",
         "cn": "狂人日记"
+    },
+    "02 孔乙己": {
+        "en": "Kong Yiji",
+        "cn": "孔乙己"
     }
 }
