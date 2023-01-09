@@ -2,7 +2,7 @@
 import { lang } from "@/data/lang"
 import { useDark, useToggle } from '@vueuse/core'
 import { ref } from "vue";
-import { current_novel, i_novel } from "@/data/novel"
+import { current_novel, INovel } from "@/data/novel"
 import { router } from "@/router/router";
 
 const change_lang = (new_lang: string) => {
@@ -33,9 +33,9 @@ const home = () => {
             <p> <span class="logo" @click="home()"> 📑 Novel Translation </span> </p>
 
             <p class="title" v-if="current_novel">
-                <span v-if="lang == 'en' || lang == 'bi'">{{ (current_novel as unknown as i_novel).en }}</span>
+                <span v-if="lang == 'en' || lang == 'bi'">{{ (current_novel as unknown as INovel).en }}</span>
                 <span v-if="lang == 'bi'">&nbsp&nbsp</span>
-                <span v-if="lang == 'cn' || lang == 'bi'">{{ (current_novel as unknown as i_novel).cn }}</span>
+                <span v-if="lang == 'cn' || lang == 'bi'">{{ (current_novel as unknown as INovel).cn }}</span>
             </p>
         </div>
 
