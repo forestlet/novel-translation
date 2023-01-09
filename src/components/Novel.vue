@@ -28,29 +28,55 @@ const novel_parser = (txt: string, lang: "en" | "cn") => {
     else txt_list = txt.split("\n\n")
 
     for (let i = 0; i < txt_list.length; i++) {
-        // 大标题
-        if (txt_list[i].startsWith("# ")) {
+        // 大标题，好奇怪，还有个不可见字符
+        if (txt_list[i].startsWith("﻿# ")) {
             txt_list[i] = txt_list[i].replace("# ", "")
             toc_list[lang].push(txt_list[i])
-            txt_list[i] = `<h1 id="${txt_list[i]}"> ${txt_list[i]} </h1>`
+
+            // 脚注
+            let regex = /(\[\d+\])/g
+            let link = txt_list[i].replaceAll(regex, `<a id="${lang}-$1" href="#/novel/${novel_name}#${lang}-$1-comment" class="super">$1</a>`)
+            txt_list[i] = `<h1 id="${txt_list[i]}"> ${link} </h1>`
+
+            continue
         }
         // 副标题
         else if (txt_list[i].startsWith("## ")) {
             txt_list[i] = txt_list[i].replace("## ", "")
             toc_list[lang].push(txt_list[i])
-            txt_list[i] = `<h2 id="${txt_list[i]}"> ${txt_list[i]} </h2>`
+
+            // 脚注
+            let regex = /(\[\d+\])/g
+            let link = txt_list[i].replaceAll(regex, `<a id="${lang}-$1" href="#/novel/${novel_name}#${lang}-$1-comment" class="super">$1</a>`)
+            txt_list[i] = `<h2 id="${txt_list[i]}"> ${link} </h2>`
+
+            continue
         }
         // 分割线
         else if (txt_list[i].startsWith("---")) {
             txt_list[i] = `<hr/>`
+            continue
         }
         // 注释
         else if (txt_list[i].startsWith("[")) {
-            txt_list[i] = `<p id="${txt_list[i].slice(0, 3)}" class="comment"> ${txt_list[i]} </p>`
+            let regex = /(\[\d+\])/g
+            let len = txt_list[i].match(regex)![0].length
+
+            // console.log(len)
+
+            let link = `<a href="#/novel/${novel_name}#${lang}-${txt_list[i].slice(0, len)}">${txt_list[i].slice(0, len)}</a>`
+            txt_list[i] = `<p id="${lang}-${txt_list[i].slice(0, len)}-comment" class="comment">
+                               ${link} ${txt_list[i].slice(len,)}
+                           </p>`
+            continue
         }
         // 段落
         else {
             txt_list[i] = `<p> ${txt_list[i]} </p>`
+
+            // 脚注
+            let regex = /(\[\d+\])/g
+            txt_list[i] = txt_list[i].replaceAll(regex, `<a id="${lang}-$1" href="#/novel/${novel_name}#${lang}-$1-comment" class="super">$1</a>`)
         }
     }
     return txt_list
@@ -119,6 +145,11 @@ else {
     margin: auto;
     text-align: justify;
     line-height: 2;
+
+    .super {
+        vertical-align: super;
+        font-size: 0.6rem;
+    }
 
     .toc {
         position: fixed;

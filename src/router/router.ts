@@ -14,7 +14,7 @@ export const router = createRouter({
     if (to.hash) {
       return {
         el: to.hash,
-        top: 60,
+        top: 72,
         behavior: "smooth",
       };
     }
