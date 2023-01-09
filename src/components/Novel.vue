@@ -24,12 +24,18 @@ let txt: IText = reactive({ "cn": [], "en": [] })
 const novel_parser = (txt: string, lang: "en" | "cn") => {
     let txt_list: string[]
 
-    if (import.meta.env.DEV) txt_list = txt.split("\r\n\r\n")
-    else txt_list = txt.split("\n\n")
+    if (import.meta.env.DEV) {
+        txt_list = txt.split("\r\n\r\n")
+        // 好奇怪，还有个不可见字符 ﻿
+        txt_list[0] = txt_list[0].slice(1,)
+    }
+    else {
+        txt_list = txt.split("\n\n")
+    }
 
     for (let i = 0; i < txt_list.length; i++) {
-        // 大标题，好奇怪，还有个不可见字符
-        if (txt_list[i].startsWith("﻿# ")) {
+        // 大标题
+        if (txt_list[i].startsWith("# ")) {
             txt_list[i] = txt_list[i].replace("# ", "")
             toc_list[lang].push(txt_list[i])
 
