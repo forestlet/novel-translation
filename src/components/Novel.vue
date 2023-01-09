@@ -134,6 +134,10 @@ else {
             <div v-if="lang == 'en' || lang == 'bi'" v-html="txt['en'][index - 1]"> </div>
             <div v-if="lang == 'cn' || lang == 'bi'" v-html="txt['cn'][index - 1]"></div>
         </div>
+
+        <el-backtop :bottom="40">
+            <i class="bi bi-arrow-up-short"></i>
+        </el-backtop>
     </div>
 </template>
 
@@ -169,6 +173,16 @@ else {
         &.comment {
             font-size: 0.8rem;
             color: var(--el-text-color-secondary);
+        }
+    }
+
+    .el-backtop {
+        border-radius: 4px;
+        color: var(--el-text-color-secondary);
+        --el-box-shadow-lighter: 0px 0px 2px #0000001f;
+
+        &:hover {
+            background-color: var(--el-fill-color)
         }
     }
 }
