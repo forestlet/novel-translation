@@ -3,7 +3,7 @@ import { novels } from "@/data/novel"
 import { router } from "@/router/router"
 import { reactive } from "vue";
 import { lang } from "@/data/lang"
-import { current_novel, i_novel } from "@/data/novel"
+import { current_novel, INovel } from "@/data/novel"
 
 interface IContentList { "en": string[], "cn": string[] }
 interface IText { "en": string[], "cn": string[] }
@@ -16,8 +16,8 @@ if (current_novel.value == "") {
 }
 
 let path = {
-    "cn": `/${novel_name}/${(current_novel.value as unknown as i_novel).cn}.md?raw`,
-    "en": `/${novel_name}/${(current_novel.value as unknown as i_novel).en}.md?raw`
+    "cn": `/${novel_name}/${(current_novel.value as unknown as INovel).cn}.md?raw`,
+    "en": `/${novel_name}/${(current_novel.value as unknown as INovel).en}.md?raw`
 }
 let txt: IText = reactive({ "cn": [], "en": [] })
 
@@ -90,10 +90,10 @@ const novel_parser = (txt: string, lang: "en" | "cn") => {
 
 // 开发环境
 if (import.meta.env.DEV) {
-    import(path["cn"]).then(t => {
+    import(/* @vite-ignore */path["cn"]).then(t => {
         txt["cn"] = novel_parser(t.default, "cn")
     })
-    import(path["en"]).then(t => {
+    import(/* @vite-ignore */path["en"]).then(t => {
         txt["en"] = novel_parser(t.default, "en")
     })
 }
