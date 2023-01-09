@@ -2,7 +2,7 @@
 
 This concerns a brother of one of my friends, whose name I will withhold for the time being. We went to middle school together and were close friends. We have, however, been apart for a while, so I am not familiar with their life. I recently heard that he had a serious illness. Because I was at home at the time, I went to see him, but the one I saw was his younger brother. His younger brother welcomed me and thanked me for coming to see him. He also let me know that his older brother had recovered and had departed to look for work as alternate[2]. He laughed as he handed me two of his brother's journals, saying they might contain information concerning his disease. His journals revealed that he suffered from paranoia. His writing used numerous odd words and was quite illogical. He didn't write the date either. Only different handwritings indicated that it had not been written all at once. Something seemed to be connected, so I gathered them and made this article for potential future medical studies. The same inaccuracy that he wrote was present in the story. I only removed the names that belonged to local people since they were unimportant. Additionally, he gave the story its name; I did not alter it. 2nd, April, 1918.
 
-## Chapter1
+## Chapter 1
 
 The moon is particularly lovely tonight.
 
@@ -10,7 +10,7 @@ For thirty years, I haven't seen him. When we met today, I was beaming. It wasn'
 
 There is a cause for my fear.
 
-## Chapter2
+## Chapter 2
 
 No moon is visible today. I am sure this is a horrible omen. This morning, when I stepped out cautiously, Richard Cho's weird expression caught my attention. He appeared to be afraid of me and to desire to hurt me. Seven or eight other people were also whispering to each other about me, but they didn't want me to hear them. People resembled them all along the streets. I was frozen from head to toe as one of the most cruel guys opened his mouth and smirked at me. I knew that their arrangement had been completed.
 
@@ -20,7 +20,7 @@ I believe that I had no grudges against Cho or the others I encountered along th
 
 That's what their parents taught them, I see.
 
-## Chapter3
+## Chapter 3
 
 Every night, I had trouble sleeping. To understand, everything needs to be researched.
 
@@ -46,7 +46,7 @@ The words written in the book and the words said by the peasant both had their e
 
 I'm a human, and they want to eat me!
 
-## Chapter4
+## Chapter 4
 
 This morning, I sat quietly for a bit. I received some food from Laowu Chen. A bowl of vegetables, a bowl of steamed fish. The fish's eyes were stark white and hard. It had an open mouth, similar to those guys that wanted to eat people. I ate some, it was slippery, I didn't know if it was fish or human, so I spit them all out.
 
@@ -64,19 +64,19 @@ I was the brother of someone who ate people.
 
 Even if they ate me, I was still their brother who ate human flesh.
 
-## Chapter5
+## Chapter 5
 
 I was thinking back these days. What if that elderly man was actually a doctor but could also eat people? On their senior doctor Shizhen Li's book "Materia Medica Something"[4], written human flesh can be fried and eaten. How could he say that he didn't eat people?
 
 Regarding my older brother, he was not to blame. When he told me a story about how people can alter and eat their kids[5]. The last time he talked about a bad guy, he said not should kill him but also eat his flesh and utilize his skin[6]. I was young at the time but my heart bit fast for a while. A few days earlier, a farmer from Wolf Village mentioned consuming heart and liver. My older brother did not feel odd, but he nodded often. I observed that he was just as cruel as before. Since he knew altering kids and eating them, he knew everything and could eat any people. I used to merely listen to his arguments, and I muddled through; now I know when he reasoned, not only human oil is on his lips, but he was also thinking about eating people.
 
-## Chapter6
+## Chapter 6
 
 It's so dark. I'm unsure of the time of day. Again, Cho's dogs are barking.
 
 A lion's savagery, a rabbit's timidity, a fox's cunningness, ....
 
-## Chapter7
+## Chapter 7
 
 I know their method. They were unwilling to kill people directly because they were terrified of the repercussions. So they got in touch and created a web to drive me to commit suicide. I can largely understand only by observing the men and ladies on the street a few days ago and the recent activities of my older brother. The ideal solution is for me to hang myself by removing my belt, hanging it on the beam. They were not charged with murder, but they did get what they wanted, so they can now laugh. Or I would pass away from anxiety and despair. Even though I was thin, I was also edible.
 
@@ -86,7 +86,7 @@ My older brother was the most poor person. He was a people as well. How was he a
 
 If I was going to curse those who eat humans, I should start with my brother. And if I want to persuade others, I need also start from him.
 
-## Chapter8
+## Chapter 8
 
 In actuality, they must already be aware of this truth now...
 
@@ -114,13 +114,13 @@ His face has altered; it is now like iron. "Maybe there are few, but it always g
 
 I instantly leaped. When I opened my eyes, he was gone. My body was drenched in sweat. He was with them and was much younger than my older brother. He must have been taught by his parents. And I'm worried that his son was also taught that. That is why everyone, even kids, looks at me evilly.
 
-## Chapter9
+## Chapter 9
 
 Desire to eat others but fear of being eaten. Everyone looks at one another with intense suspicion.
 
 If we can put this thought aside and work, walk, eat, and sleep with ease, that will bring everyone great comfort. This is just a barrier or a door. They are parents, children, brothers, couples, friends, teachers, students, enemies, and strangers. Everyone congregates, supporting and impeding one another, but none wants to cross it.
 
-## Chapter10
+## Chapter 10
 
 I went to find my older brother this morning. He stood in front of the hallway, looking up at the sky. I approached his back and blocked the door. I was extremely calm and told him.
 
@@ -164,7 +164,7 @@ I couldn't move because it was so heavy. He wanted me to die. I knew his heavin
 
 "You must start changing right now and use your true heart! You should be aware that there will be no room for human-eating people in the future..."
 
-## Chapter11
+## Chapter 11
 
 There isn't a sun in the sky. The door is shut. I eat two meals every day.
 
@@ -174,7 +174,7 @@ My big brother ate my little sister, but I wasn't sure if my mother was aware of
 
 But I believed my mother was aware. But she remained silent as she sobbed, perhaps believing it was acceptable. I can recall being around 4 or 5. I sat in front of the hallway and took pleasure in the chill. My older brother told me sons should slice up some of their meat and boil it for their parents if their parents were ill[10]. That produced an excellent man. My mother didn't object. A piece is edible, and the entire is also inherently edible. But I still feel sad when I recall how much she cried that day. That is very odd!
 
-## Chapter12
+## Chapter 12
 
 I can't think anymore.
 
@@ -184,7 +184,7 @@ I may just mindlessly consume some of my sister's flesh, and now it's my turn.
 
 I've been eating humans for four thousand years. Although I was unaware of it, I now realize how difficult it is to see real people.
 
-## Chapter13
+## Chapter 13
 
 Are there any kids who have never eaten people?
 
