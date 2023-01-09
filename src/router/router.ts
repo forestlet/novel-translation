@@ -1,6 +1,7 @@
+import { createRouter, createWebHashHistory } from "vue-router";
 import Novel from "@/components/Novel.vue";
 import Content from "@/components/Content.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import { is_user_agent_mobile } from "@/util/util";
 
 const routes = [
   { path: "/", component: Content },
@@ -14,7 +15,7 @@ export const router = createRouter({
     if (to.hash) {
       return {
         el: to.hash,
-        top: 72,
+        top: is_user_agent_mobile() ? 100 : 72,
         behavior: "smooth",
       };
     }

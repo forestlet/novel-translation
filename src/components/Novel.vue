@@ -113,9 +113,12 @@ else {
 <template>
     <div class="novel">
         <div class="toc">
+
             <el-popover placement="right" :width="300" trigger="hover">
                 <template #reference>
-                    <i class="bi bi-list"></i>
+                    <el-button text>
+                        <i class="bi bi-list"></i>
+                    </el-button>
                 </template>
 
                 <ul>
@@ -180,6 +183,11 @@ else {
             font-size: 0.8rem;
             color: var(--el-text-color-secondary);
         }
+    }
+
+    hr {
+        height: 10px;
+        opacity: 0;
     }
 
     .el-backtop {
